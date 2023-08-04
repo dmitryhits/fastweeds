@@ -1,0 +1,9 @@
+remote_theme: daviddarnes/alembic@main
+plugins:
+- jekyll-remote-theme
+
+title: Weed Classifier
+description: A Project that classifies weeds
+
+author:
+  name: Dmitry Hits
