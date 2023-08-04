@@ -9,23 +9,24 @@ layout: page
 
     <!-- Include your JavaScript code -->
     <script>
-        // Function to trigger the prediction and update the result on the webpage
-        async function predictWithGradio() {
-            console.log('Button clicked')
-            const response_0 = await fetch("https://raw.githubusercontent.com/gradio-app/gradio/main/test/test_files/bus.png");
-            console.log('got image')
-            const exampleImage = await response_0.blob();
+        document.addEventListener("DOMContentLoaded", ()=>{
+            // Function to trigger the prediction and update the result on the webpage
+            async function predictWithGradio() {
+                console.log('Button clicked')
+                const response_0 = await fetch("https://raw.githubusercontent.com/gradio-app/gradio/main/test/test_files/bus.png");
+                console.log('got image')
+                const exampleImage = await response_0.blob();
 
-            const app = await gr.client("https://dhits-weed-classifier.hf.space/");
-            const result = await app.predict("/predict", [exampleImage]);
-            console.log(result.data);
-            // Update the result on the webpage
-            document.getElementById("prediction-result").innerText = JSON.stringify(result.data, null, 2);
-        }
+                const app = await gr.client("https://dhits-weed-classifier.hf.space/");
+                const result = await app.predict("/predict", [exampleImage]);
+                console.log(result.data);
+                // Update the result on the webpage
+                document.getElementById("prediction-result").innerText = JSON.stringify(result.data, null, 2);
+            }
 
-        // Add event listener to the button
-        document.getElementById("predict-button").addEventListener("click", predictWithGradio);
-
+            // Add event listener to the button
+            document.getElementById("predict-button").addEventListener("click", predictWithGradio);
+        })
 
 
     </script>
