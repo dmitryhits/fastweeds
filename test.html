@@ -9,6 +9,7 @@ layout: page
 
     <!-- Include your JavaScript code -->
     <script>
+        import { client } from "@gradio/client";
         document.addEventListener("DOMContentLoaded", ()=>{
             // Function to trigger the prediction and update the result on the webpage
             async function predictWithGradio() {
@@ -17,7 +18,7 @@ layout: page
                 console.log('got image')
                 const exampleImage = await response_0.blob();
 
-                const app = await gr.client("https://dhits-weed-classifier.hf.space/");
+                const app = await client("https://dhits-weed-classifier.hf.space/");
                 const result = await app.predict("/predict", [exampleImage]);
                 console.log(result.data);
                 // Update the result on the webpage
