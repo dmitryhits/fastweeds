@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gradio App Embed</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Gradio App Example</title>
+</head>
+<body>
+    <h1>Gradio App Example</h1>
+
+    <!-- Create a container for the Gradio app if needed -->
+    <div id="gradio-app"></div>
+
+    <!-- Include the Gradio client script -->
+    <script src="https://cdn.jsdelivr.net/npm/@gradio/client@1.3.5/dist/gradio.min.js"></script>
+
+    <!-- Include your JavaScript code -->
+    <script>
+        // Function to trigger the prediction and update the result on the webpage
+        async function predictWithGradio() {
+            const response_0 = await fetch("https://raw.githubusercontent.com/gradio-app/gradio/main/test/test_files/bus.png");
+            const exampleImage = await response_0.blob();
+
+            const app = await gr.client("https://dhits-weed-classifier.hf.space/");
+            const result = await app.predict("/predict", [exampleImage]);
+
+            // Update the result on the webpage
+            document.getElementById("prediction-result").innerText = JSON.stringify(result.data, null, 2);
+        }
+
+        // Add event listener to the button
+        document.getElementById("predict-button").addEventListener("click", predictWithGradio);
+
+
+    </script>
+     <!-- Add a button to trigger the prediction -->
+     <button id="predict-button">Predict</button>
+      <!-- Add a container to display the prediction result -->
+    <div id="prediction-result"></div>
+
+
+    <div>This model was trained on the dataset that contains 5,539 images of crop and weed seedlings. 
+        The images are grouped into 12 classes. 
+        These classes represent common plant species in Danish agriculture at different growth stages.
+         A pretrained ResNet34  model was fine-tuned using fastai vision library. The error rate achived on the validation dataset is 2.5% after 4 epochs.
+        Currently the model does not generalize well on the out-of-domain images. Probably because of the specificity of the dataset. 
+        The images in the dataset are of a single plant taken from the top and on a single background of a grit surface. Some images have barcode labels that might be unique to the particular plant. 
+        The last two images in the examples are not from the dataset. They are getting wrongly classified as <b>Scentless Mayweed</b> even though they are <b>Small-flowered Cranesbill</b> (compare with the second image in the examples)
+        <p style='text-align: center'><a href='https://tmabraham.github.io/blog/gradio_hf_spaces_tutorial' target='_blank'>Blog post</a></p>
+        </div>
+</body>
+</html>
