@@ -1,6 +1,6 @@
 ---
-title: Home
+title: Main
 layout: page
 ---
 
-# Weed classisifier
+## Weed classifier
