@@ -22,6 +22,7 @@ layout: page
                 const result = await app.predict("/predict", [exampleImage]);
                 console.log(result.data);
                 // Update the result on the webpage
+                document.getElementById("prediction-result").innerText = 'Test';
                 document.getElementById("prediction-result").innerText = JSON.stringify(result.data, null, 2);
             }
 
