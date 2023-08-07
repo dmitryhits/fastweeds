@@ -7,11 +7,16 @@ permalink: /classifier
 
 <!-- Create a container for the Gradio app if needed -->
 <div id="gradio-app"><h2>JavaScript code that accesses Gradio API at HuggingFace spaces</h2>
+<button id="test-button">Test</button>
+<script>
+    document.getElementById("test-button").addEventListener("click", console.log('test button clicked'))
+</script>
 <!-- Add a button to trigger the prediction -->
 <button id="predict-button">Predict</button>
 
 <!-- Include your JavaScript code -->
 <script type="module" src=https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js>
+    console.log('in second script')
     import {client} from "@gradio/client";
         console.log('gradio imported')
         // Function to trigger the prediction and update the result on the webpage
