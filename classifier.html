@@ -13,8 +13,7 @@ permalink: /classifier
 <!-- Include your JavaScript code -->
 <script type="module" src=https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js>
     import {client} from "@gradio/client";
-    document.addEventListener("DOMContentLoaded", (event)=>{
-        console.log('DOM loaded')
+        console.log('gradio imported')
         // Function to trigger the prediction and update the result on the webpage
         async function predictWithGradio() {
             console.log('Button clicked')
@@ -32,7 +31,6 @@ permalink: /classifier
 
         // Add event listener to the button
         document.getElementById("predict-button").addEventListener("click", predictWithGradio);
-    })
 
 </script>
 </div>
