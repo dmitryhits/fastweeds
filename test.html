@@ -11,6 +11,7 @@ layout: page
     <script type="module" src=https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js>
         import {client} from "@gradio/client";
         document.addEventListener("DOMContentLoaded", (event)=>{
+            console.log('DOM loaded')
             // Function to trigger the prediction and update the result on the webpage
             async function predictWithGradio() {
                 console.log('Button clicked')
