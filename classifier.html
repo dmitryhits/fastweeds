@@ -1,0 +1,51 @@
+---
+layout: page
+title: "Classifier"
+permalink: /classifier
+---
+
+
+<!-- Create a container for the Gradio app if needed -->
+<div id="gradio-app"><h2>JavaScript code that accesses Gradio API at HuggingFace spaces</h2>
+<!-- Add a button to trigger the prediction -->
+<button id="predict-button">Predict</button>
+
+<!-- Include your JavaScript code -->
+<script type="module" src=https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js>
+    import {client} from "@gradio/client";
+    document.addEventListener("DOMContentLoaded", (event)=>{
+        console.log('DOM loaded')
+        // Function to trigger the prediction and update the result on the webpage
+        async function predictWithGradio() {
+            console.log('Button clicked')
+            const response_0 = await fetch("https://petkeen.com/wp-content/uploads/2021/05/grey-cat.jpeg");
+            console.log('got image')
+            const exampleImage = await response_0.blob();
+
+            const app = await client("https://dhits-weed-classifier.hf.space/");
+            const result = await app.predict("/predict", [exampleImage]);
+            console.log(result.data);
+            // Update the result on the webpage
+            document.getElementById("prediction-result").innerText = 'Test';
+            document.getElementById("prediction-result").innerText = JSON.stringify(result.data, null, 2);
+        }
+
+        // Add event listener to the button
+        document.getElementById("predict-button").addEventListener("click", predictWithGradio);
+    })
+
+</script>
+</div>
+<!-- Add a container to display the prediction result -->
+<div id="prediction-result">Prediction</div>
+
+
+<div>This model was trained on the dataset that contains 5,539 images of crop and weed seedlings. 
+    The images are grouped into 12 classes. 
+    These classes represent common plant species in Danish agriculture at different growth stages.
+        A pretrained ResNet34  model was fine-tuned using fastai vision library. The error rate achived on the validation dataset is 2.5% after 4 epochs.
+    Currently the model does not generalize well on the out-of-domain images. Probably because of the specificity of the dataset. 
+    The images in the dataset are of a single plant taken from the top and on a single background of a grit surface. Some images have barcode labels that might be unique to the particular plant. 
+    The last two images in the examples are not from the dataset. They are getting wrongly classified as <b>Scentless Mayweed</b> even though they are <b>Small-flowered Cranesbill</b> (compare with the second image in the examples)
+    <p style='text-align: center'><a href='https://tmabraham.github.io/blog/gradio_hf_spaces_tutorial' target='_blank'>Blog post</a></p>
+</div>
