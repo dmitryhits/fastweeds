@@ -21,7 +21,7 @@ permalink: /classifier
 <!-- Include your JavaScript code -->
 <script type="module">
     console.log('in second script')
-    import {client} from "@gradio/client";
+    import {client} from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
         console.log('gradio imported')
         // Function to trigger the prediction and update the result on the webpage
         async function predictWithGradio() {
