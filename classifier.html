@@ -15,6 +15,10 @@ permalink: /classifier
     tst = document.getElementById("test-button")
     tst.addEventListener("click", printconsole)
 </script>
+<input id="upload_image" type="file">
+<div id="display_image">
+
+</div>
 <!-- Add a button to trigger the prediction -->
 <button id="predict-button">Predict</button>
 
@@ -30,6 +34,7 @@ permalink: /classifier
             console.log('got image')
 
             const app = await client("https://dhits-weed-classifier.hf.space/");
+            console.log("app is ready")
             const result = await app.predict("/predict", [exampleImage]);
             console.log(result.data);
             // Update the result on the webpage
@@ -45,9 +50,9 @@ permalink: /classifier
 <!-- Add a container to display the prediction result -->
 <div id="prediction-result">Prediction</div>
 <div>Examples:
-    <img id="CommonChickweed" src="media/CommonChickweed.png" alt="Common Chickweed">
-    <img src="media/FatHen.png" alt="Fat Hen">
-    <img src="media/SugarBeet.png" alt="SugarBeet">
+    <img id="CommonChickweed" src="media/CommonChickweed.png" alt="Common Chickweed" width="300" height="150">
+    <img src="media/FatHen.png" alt="Fat Hen" width="300" height="150">
+    <img src="media/SugarBeet.png" alt="SugarBeet" width="300" height="150">
 </div>
 
 <div>This model was trained on the dataset that contains 5,539 images of crop and weed seedlings. 
