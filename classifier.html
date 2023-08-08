@@ -26,9 +26,8 @@ permalink: /classifier
         // Function to trigger the prediction and update the result on the webpage
         async function predictWithGradio() {
             console.log('Button clicked')
-            const response_0 = await fetch("https://petkeen.com/wp-content/uploads/2021/05/grey-cat.jpeg");
+            const exampleImage = document.getElementById("CommonChickweed").src;
             console.log('got image')
-            const exampleImage = await response_0.blob();
 
             const app = await client("https://dhits-weed-classifier.hf.space/");
             const result = await app.predict("/predict", [exampleImage]);
@@ -45,7 +44,11 @@ permalink: /classifier
 </div>
 <!-- Add a container to display the prediction result -->
 <div id="prediction-result">Prediction</div>
-
+<div>Examples:
+    <img id="CommonChickweed" src="media/CommonChickweed.png" alt="Common Chickweed">
+    <img src="media/FatHen.png" alt="Fat Hen">
+    <img src="media/SugarBeet.png" alt="SugarBeet">
+</div>
 
 <div>This model was trained on the dataset that contains 5,539 images of crop and weed seedlings. 
     The images are grouped into 12 classes. 
