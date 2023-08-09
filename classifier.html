@@ -32,6 +32,7 @@ permalink: /classifier
             console.log('Button clicked')
             const exampleImage = document.getElementById("CommonChickweed").src;
             console.log('got image')
+            console.log(typeof exampleImage)
 
             const app = await client("https://dhits-weed-classifier.hf.space/");
             console.log("app is ready")
