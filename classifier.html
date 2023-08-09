@@ -35,7 +35,10 @@ permalink: /classifier
             console.log('got image data URL')
             // Convert the data URL to a Blob
             console.log(imageDataURL)
-            const exampleImage = dataURLToBlob(imageDataURL);
+            const response_0 = await fetch(imageDataURL);
+            console.log(response_0)
+            const exampleImage = await response_0.blob();
+            // const exampleImage = dataURLToBlob(imageDataURL);
             console.log('got image')
             console.log(typeof exampleImage)
 
