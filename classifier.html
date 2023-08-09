@@ -49,13 +49,19 @@ permalink: /classifier
 
          // Function to convert a data URL to a Blob
          function dataURLToBlob(dataURL) {
+        
             const arr = dataURL.split(",");
+            console.log(arr.length)
+            console.log(arr[0])
+
             const mime = arr[0].match(/:(.*?);/)[1];
             const byteString = atob(arr[1]);
+            console.log(arr[1])
+        
             let n = byteString.length;
             const uint8Array = new Uint8Array(n);
-            while (n--) {
-                uint8Array[n] = byteString.charCodeAt(n);
+            for (let i = 0; i < byteString.length; i++) {
+                uint8Array[i] = byteString.charCodeAt(i);
             }
             return new Blob([uint8Array], { type: mime });
         }
