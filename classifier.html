@@ -32,8 +32,9 @@ permalink: /classifier
             console.log('Button clicked')
             // Get the image data URL from the src attribute
             const imageDataURL = document.getElementById("CommonChickweed").src;
-            console.log('got image data')
+            console.log('got image data URL')
             // Convert the data URL to a Blob
+            console.log(imageDataURL)
             const exampleImage = dataURLToBlob(imageDataURL);
             console.log('got image')
             console.log(typeof exampleImage)
