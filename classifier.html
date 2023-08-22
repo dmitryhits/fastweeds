@@ -9,9 +9,18 @@ permalink: /classifier
 <div id="gradio-app"><h2>JavaScript code that accesses Gradio API at HuggingFace spaces</h2>
 <button id="test-button">Test</button>
 <script src="js/test.js"></script>
-<input id="upload_image" type="file">
-<div id="display_image">
-
+<div id="imageContainer">
+    <p>Please upload an image or select from the examples below:</p>
+    <input type="file" id="imageInput" accept="image/*">
+    <div id="imageExamples">
+        <p>Examples:</p>
+        <img id="CommonChickweed" src="media/CommonChickweed.png" alt="Common Chickweed" width="300" height="150">
+        <img src="media/FatHen.png" alt="Fat Hen" width="300" height="150">
+        <img src="media/SugarBeet.png" alt="SugarBeet" width="300" height="150">
+    </div>
+    <div id="selectedImage">
+        <!-- Selected image will be displayed here -->
+    </div>
 </div>
 <!-- Add a button to trigger the prediction -->
 <button id="predict-button">Predict</button>
@@ -21,16 +30,12 @@ permalink: /classifier
 </div>
 <!-- Add a container to display the prediction result -->
 <div id="prediction-result">Prediction</div>
-<div>Examples:
-    <img id="CommonChickweed" src="media/CommonChickweed.png" alt="Common Chickweed" width="300" height="150">
-    <img src="media/FatHen.png" alt="Fat Hen" width="300" height="150">
-    <img src="media/SugarBeet.png" alt="SugarBeet" width="300" height="150">
-</div>
+
 
 <div>This model was trained on the dataset that contains 5,539 images of crop and weed seedlings. 
     The images are grouped into 12 classes. 
     These classes represent common plant species in Danish agriculture at different growth stages.
-        A pretrained ResNet34  model was fine-tuned using fastai vision library. The error rate achived on the validation dataset is 2.5% after 4 epochs.
+        A pretrained ResNet34  model was fine-tuned using fastai vision library. The error rate achieved on the validation dataset is 2.5% after 4 epochs.
     Currently the model does not generalize well on the out-of-domain images. Probably because of the specificity of the dataset. 
     The images in the dataset are of a single plant taken from the top and on a single background of a grit surface. Some images have barcode labels that might be unique to the particular plant. 
     The last two images in the examples are not from the dataset. They are getting wrongly classified as <b>Scentless Mayweed</b> even though they are <b>Small-flowered Cranesbill</b> (compare with the second image in the examples)

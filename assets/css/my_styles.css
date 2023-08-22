@@ -1,0 +1,13 @@
+.thumbnail {
+    max-width: 100px;
+    height: auto;
+    cursor: pointer;
+}
+#imageContainer {
+    text-align: center;
+}
+#selectedImage {
+    max-width: 100%;
+    height: auto;
+    margin: 20px;
+}
