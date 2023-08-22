@@ -1,5 +1,5 @@
 console.log('in second script')
-import displaySelectedImage from "./js/show";
+import displaySelectedImage from "./show.js";
 import {client} from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
 console.log('gradio imported')
 const imageInput = document.getElementById("imageInput");
