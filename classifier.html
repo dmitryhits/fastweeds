@@ -7,26 +7,26 @@ permalink: /classifier
 
 <!-- Create a container for the Gradio app if needed -->
 <div id="gradio-app"><h2>JavaScript code that accesses Gradio API at HuggingFace spaces</h2>
-<button id="test-button">Test</button>
-<script src="js/test.js"></script>
-<div id="imageContainer">
-    <p>Please upload an image or select from the examples below:</p>
-    <input type="file" id="imageInput" accept="image/*">
-    <div id="imageExamples">
-        <p>Examples:</p>
-        <img id="CommonChickweed" src="media/CommonChickweed.png" alt="Common Chickweed" width="300" height="150">
-        <img src="media/FatHen.png" alt="Fat Hen" width="300" height="150">
-        <img src="media/SugarBeet.png" alt="SugarBeet" width="300" height="150">
+    <button id="test-button">Test</button>
+    <script src="js/test.js"></script>
+    <div id="imageContainer">
+        <p>Please upload an image or select from the examples below:</p>
+        <div id="selectedImage">
+            <!-- Selected image will be displayed here -->
+        </div>
+        <input type="file" id="imageInput" accept="image/*">
+        <div id="imageExamples">
+            <p>Examples:</p>
+            <img id="CommonChickweed" src="media/CommonChickweed.png" alt="Common Chickweed" width="300" height="150">
+            <img id="FatHen" src="media/FatHen.png" alt="Fat Hen" width="300" height="150">
+            <img id="SugerBeet" src="media/SugarBeet.png" alt="SugarBeet" width="300" height="150">
+        </div>
     </div>
-    <div id="selectedImage">
-        <!-- Selected image will be displayed here -->
-    </div>
-</div>
-<!-- Add a button to trigger the prediction -->
-<button id="predict-button">Predict</button>
+    <!-- Add a button to trigger the prediction -->
+    <button id="predict-button">Predict</button>
 
-<!-- Include your JavaScript code -->
-<script src="js/get_predictions.js" type="module"></script>
+    <!-- Include your JavaScript code -->
+    <script src="js/get_predictions.js" type="module"></script>
 </div>
 <!-- Add a container to display the prediction result -->
 <div id="prediction-result">Prediction</div>
