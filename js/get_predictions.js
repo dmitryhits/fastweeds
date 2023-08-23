@@ -4,7 +4,6 @@ import {client} from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/ind
 console.log('gradio imported')
 const imageInput = document.getElementById("imageInput");
 const imageExamples = document.querySelectorAll(".example-image");
-const selectedImageContainer = document.getElementById("selectedImage");
 // Event listener for selecting an image from examples
 imageExamples.forEach(example => {
     example.addEventListener("click", () => {
