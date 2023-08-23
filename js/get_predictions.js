@@ -20,6 +20,15 @@ imageInput.addEventListener("change", () => {
         displaySelectedImage(imageUrl);
     }
 });
+
+// Event listener for selecting an image from examples
+imageExamples.forEach(example => {
+    example.addEventListener("click", () => {
+        const imageUrl = example.getAttribute("src");
+        displaySelectedImage(imageUrl);
+    });
+});
+
 // Function to trigger the prediction and update the result on the webpage
 async function predictWithGradio(exampleImage) {
     console.log('Button clicked')
