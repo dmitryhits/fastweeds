@@ -21,14 +21,14 @@ imageInput.addEventListener("change", () => {
     }
 });
 // Function to trigger the prediction and update the result on the webpage
-async function predictWithGradio(imageDataURL) {
+async function predictWithGradio(exampleImage) {
     console.log('Button clicked')
-    console.log('got image data URL')
+    // console.log('got image data URL')
     // Convert the data URL to a Blob
-    console.log(imageDataURL)
-    const response_0 = await fetch(imageDataURL);
-    console.log(response_0)
-    const exampleImage = await response_0.blob();
+    // console.log(imageDataURL)
+    // const response_0 = await fetch(imageDataURL);
+    // console.log(response_0)
+    // const exampleImage = await response_0.blob();
     // const exampleImage = dataURLToBlob(imageDataURL);
     console.log('got image')
     console.log(typeof exampleImage)
